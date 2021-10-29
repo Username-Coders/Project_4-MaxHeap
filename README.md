@@ -40,7 +40,7 @@ Method that prints the first 10 integers of an array into an output file (Real N
 ````
 
 ````
-Method that prints the number of swaps performed during Max Heap creation into output file (Real Name, Username)
+Method that prints number of swaps during Max Heap creation into output file (Real Name, Username)
     => Number of swaps could be a private class variable that gets updated when Max Heap is created
     => "Number of swaps in the heap creation: 480"
 ````
