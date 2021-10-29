@@ -1,2 +1,2 @@
 # Project_4-MaxHeap
-CS2400 Project_4-MaxHeap
+CS 2400 Project 4-MaxHeap
