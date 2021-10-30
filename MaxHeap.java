@@ -74,7 +74,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
       heap[newIndex] = newEntry;
       lastIndex++;
-      //ensureCapacity();
+      ensureCapacity();
 
    } // end add
 
@@ -131,6 +131,15 @@ public final class MaxHeap<T extends Comparable<? super T>>
    
 // Private methods
 // . . .
+
+
+   private void ensureCapacity() {
+      if (lastIndex >= heap.length - 1) {
+         int newLength = 2 * heap.length;
+         checkCapacity(newLength);
+         heap = Arrays.copyOf(heap, newLength);
+      }
+   }
 
    private void checkCapacity(int capacity) {
       if (capacity > MAX_CAPACITY) {
