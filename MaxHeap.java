@@ -127,12 +127,26 @@ public final class MaxHeap<T extends Comparable<? super T>>
       lastIndex = 0;
    } // end clear
 
-  
+
+   /**
+    * Prints the heap.
+    */
+   public void printHeap() {
+
+      for (int i = 1; i < this.getSize() + 1;i++) {
+          System.out.print(heap[i] + " ");
+      }
+
+   }
    
-// Private methods
-// . . .
+   /**
+    * ---- Private Methods ----
+    */
 
 
+   /**
+    * Checks if heap is at size limit, if it is create a new heap of double size.
+    */
    private void ensureCapacity() {
       if (lastIndex >= heap.length - 1) {
          int newLength = 2 * heap.length;
@@ -141,6 +155,10 @@ public final class MaxHeap<T extends Comparable<? super T>>
       }
    }
 
+   /**
+    * Checks that the capacity is not greater than the max capacity allowed.
+    * @param capacity The given capacity to be checked for validity.
+    */
    private void checkCapacity(int capacity) {
       if (capacity > MAX_CAPACITY) {
          throw new IllegalStateException("Attempt to create a heap whose " +
@@ -149,6 +167,10 @@ public final class MaxHeap<T extends Comparable<? super T>>
       }
    } // end checkCapacity
 
+
+   /**
+    * Check if the integrity of the stack is maintained.
+    */
    private void checkIntegrity() {
       if(!integrityOK) {
          throw new SecurityException("MaxHeap object is corrupt.");
