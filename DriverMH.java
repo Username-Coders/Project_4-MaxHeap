@@ -16,9 +16,22 @@ public class DriverMH {
 
     public static void main(String []args) {
 
-        MaxHeap<String> heap1 = new MaxHeap<>();
+        int node1 = 5;
+        int node2 = 1;
+        int node3 = 3;
+        int node4 = 6;
+
+        MaxHeap<Integer> heap1 = new MaxHeap<>();
+
+        heap1.add(node1);
+        heap1.add(node2);
+        heap1.add(node3);
+        heap1.add(node4);
+
+        heap1.printHeap();
+
 
 
     }
-    
+
 }
