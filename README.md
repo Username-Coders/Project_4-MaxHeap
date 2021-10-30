@@ -13,13 +13,15 @@ Implement method that builds a max heap using sequential insertions (Real Name, 
 ````
     
 ````
-Implement method that builds a max heap using the optimal method (Real Name, Username)
+Already Completed
+Implement method that builds a max heap using the optimal method (John Salinas, JohnSalinas123)
   => its time complexity: O(n)
   => the "smart" way we learned in class
   => needs to keep track of how many swaps (swapping parent and child) are required to build a heap
 ````
 
 ````
+Already Completed
 Implement the remove method of a max-heap (Real Name, Username)
 ````
 
