@@ -58,6 +58,14 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
    } // end constructor
 
+   public void initializeHeap(T[] entries) {
+      checkCapacity(entries.length);
+      
+      for (int index = 0; index < entries.length; index++) {
+         heap[index + 1] = entries[index];
+      }
+   }
+
 
    public void add(T newEntry)
    {
@@ -136,6 +144,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
       for (int i = 1; i < this.getSize() + 1;i++) {
           System.out.print(heap[i] + " ");
       }
+
+      System.out.println();
 
    }
    
