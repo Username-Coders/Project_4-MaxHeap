@@ -10,6 +10,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
              implements MaxHeapInterface<T>
 {
    private T[] heap;      // Array of heap entries; ignore heap[0]
+   private int swaps = 0;
    private int lastIndex; // Index of last entry and number of entries
    private boolean integrityOK = false;
 	private static final int DEFAULT_CAPACITY = 100;
@@ -43,6 +44,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
     */
    public void createHeap_SmartWay(T[] entries) {
       //int entriesLength = entries.length;
+      int tempSwaps = 0;
 
       checkCapacity(entries.length);  // Call other constructor
       lastIndex = entries.length;
@@ -54,9 +56,23 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
       // Create heap
       for (int rootIndex = lastIndex / 2; rootIndex > 0; rootIndex--)
-         reheap(rootIndex);
+         tempSwaps = reheap(rootIndex) + tempSwaps;
 
+
+      swaps = tempSwaps;    
    } // end constructor
+
+   public int getSwaps() {
+      return swaps;
+   }
+
+   public T getHeapValue_atIndex(int index) {
+      if (index > 0 && index < lastIndex) {
+         return heap[index];
+      } else {
+         return null;
+      }
+   }
 
    public void initializeHeap(T[] entries) {
       checkCapacity(entries.length);
@@ -189,7 +205,8 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
 
    // reheap version from powerpoint
-   private void reheap(int rootIndex) {
+   private int reheap(int rootIndex) {
+      int tempSwaps = 0;
       boolean done = false;
       T orphan = heap[rootIndex];
       int leftChildIndex = 2 * rootIndex;
@@ -210,13 +227,14 @@ public final class MaxHeap<T extends Comparable<? super T>>
             heap[rootIndex] = heap[largerChildIndex];
             rootIndex = largerChildIndex;
             leftChildIndex = 2 * rootIndex;
+            tempSwaps++;
 
          } else {
             done = true;
          }
       } // end while
       heap[rootIndex] = orphan;
-
+      return tempSwaps;
    } // end reheap (powerpoint version)
 
    // reheap version from source code
