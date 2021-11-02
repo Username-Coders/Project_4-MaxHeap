@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DriverMH {
 
      /**
@@ -6,12 +8,16 @@ public class DriverMH {
     * @return Returns an integer array
     */
     public Integer[] read100Integers(String fileName) {
+        Scanner scan = new Scanner(fileName);
         Integer[] result = new Integer[100];
+        
+        for (int i = 0 ; i < result.length; i++)
+            result[i] = scan.nextInt();
    
-
-
-        return result;
+         return result;
+        
     }
+
 
 
     public static void main(String []args) {
