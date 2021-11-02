@@ -37,6 +37,20 @@ public final class MaxHeap<T extends Comparable<? super T>>
       integrityOK = true;
    } // end constructor
 
+
+   /**
+    * Builds max heap using sequential insertions.
+    * @param entries The array containing the content of max heap.
+    */
+   public void createHeap_Sequential(T[] entries) {
+
+      checkCapacity(entries.length);
+
+
+
+
+   }
+
    
    /**
     * Creates heap the smart way
@@ -61,6 +75,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
       swaps = tempSwaps;    
    } // end constructor
+
 
    public int getSwaps() {
       return swaps;
