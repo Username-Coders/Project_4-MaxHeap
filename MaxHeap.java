@@ -9,9 +9,10 @@ import java.util.Arrays;
 public final class MaxHeap<T extends Comparable<? super T>>
              implements MaxHeapInterface<T>
 {
-   private T[] heap;      // Array of heap entries; ignore heap[0]
-   private int swaps = 0;
-   private int lastIndex; // Index of last entry and number of entries
+   private T[] heap;                // Array of heap entries; ignore heap[0]
+   private int swaps = 0;           // Number of swaps performed during creation
+   private boolean optimal = false; // True if used optimal, false if used sequential in heap creation
+   private int lastIndex;           // Index of last entry and number of entries
    private boolean integrityOK = false;
 	private static final int DEFAULT_CAPACITY = 100;
 	private static final int MAX_CAPACITY = 10000;
@@ -46,7 +47,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
 
       checkCapacity(entries.length);
 
-
+      
 
 
    }
