@@ -5,37 +5,85 @@ public class DriverMH {
     * @param fileName The name of the file where the integers are.
     * @return Returns an integer array
     */
-    public Integer[] read100Integers(String fileName) {
+    public static Integer[] read100Integers(String fileName) {
         Integer[] result = new Integer[100];
    
 
 
         return result;
     }
+    
+    /**
+     * Outputs first 10 integers of heap array, after heap creation, into output file.
+     * @param heap The MaxHeap object, used to access the heap array values.
+     */
+    public static void print10Num_Creation(MaxHeap<Integer> heap, String fileName) {
+
+    }
+
+    /**
+     * Outputs number of swaps performed, after heap creation, into output file.
+     * @param heap The MaxHeap object, used to access the swaps value.
+     */
+    public static void printSwaps(MaxHeap<Integer> heap, String fileName) {
+
+    }
+
+    /**
+     * Performs 10 removals on the given heap.
+     * @param heap The MaxHeap object from which to perform 10 removals.
+     */
+    public static void perform10Removals(MaxHeap<Integer> heap) {
+
+    }
+
+    /**
+     * Output the first 10 integers of heap array, after 10 removals, into output file.
+     * @param heap 
+     */
+    public static void print10Num_Removal(MaxHeap<Integer> heap, String fileName) {
+
+    }
+
+    
 
 
     public static void main(String []args) {
 
-        Integer[] valueArray = {20,40,30,10,90,70};
+        String inputFileName = "data_sorted.txt";
+        String outputFileName = "data.txt";
+        //Integer[] valueArray = {20,40,30,10,90,70};
 
-        MaxHeap<Integer> heap1 = new MaxHeap<>();
+        Integer[] heapValues = read100Integers(inputFileName);
 
-        heap1.add(valueArray[0]);
-        heap1.add(valueArray[1]);
-        heap1.add(valueArray[2]);
-        heap1.add(valueArray[3]);
-        heap1.add(valueArray[4]);
-        heap1.add(valueArray[5]);
+        // Creating heap the sequential way
+        MaxHeap<Integer> sequenHeap = new MaxHeap<>();
+        sequenHeap.createHeap_Sequential(heapValues);
 
-        heap1.printHeap();
-
-        MaxHeap<Integer> heap2 = new MaxHeap<>();
-
-        heap2.createHeap_SmartWay(valueArray);
-
-        heap2.printHeap();
+        // Print first 10 integers to output file, after
 
 
+
+        // Creating heap the smart way
+        MaxHeap<Integer> smartHeap = new MaxHeap<>();
+        smartHeap.createHeap_SmartWay(heapValues);
+
+        // Print first 10 integers to output file, after creation of heap
+        print10Num_Creation(smartHeap, outputFileName);
+
+        // Print number of swaps performed to output file
+        printSwaps(smartHeap, outputFileName);
+
+        // Perform 10 removals on the heap
+        perform10Removals(smartHeap);
+
+        // Print first 10 integers of heap array after 10 removals
+        print10Num_Removal(smartHeap, outputFileName);
+
+        //smartHeap.printHeap();
+
+
+        
     }
 
 }
