@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.io.File;
 public class DriverMH {
 
      /**
@@ -8,13 +8,20 @@ public class DriverMH {
     * @return Returns an integer array
     */
     public Integer[] read100Integers(String fileName) {
-        Scanner scan = new Scanner(fileName);
+        File myfile = new File("data_sorted.txt");
+        Scanner scan = new Scanner(myfile);
         Integer[] result = new Integer[100];
+        int i = 0;
+        result[i] = Integer.valueOf(i);
+       
+        while(scan.hasNextInt()){
+           
+            result[i++] = scan.nextInt();
+       }
         
-        for (int i = 0 ; i < result.length; i++)
-            result[i] = scan.nextInt();
-   
-         return result;
+        scan.close();
+        return result;
+    
         
     }
 
