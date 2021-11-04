@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.io.File;
 public class DriverMH {
 
      /**
@@ -7,18 +7,24 @@ public class DriverMH {
     * @param fileName The name of the file where the integers are.
     * @return Returns an integer array
     */
-
-    public static Integer[] read100Integers(String fileName) {
-        Scanner scan = new Scanner(fileName);
+    public Integer[] read100Integers(String fileName) {
+        File myfile = new File("data_sorted.txt");
+        Scanner scan = new Scanner(myfile);
         Integer[] result = new Integer[100];
-        
-        for (int i = 0 ; i < result.length; i++)
-            result[i] = scan.nextInt();
-   
-         return result;
-        
+        int i = 0;
+        result[i] = Integer.valueOf(i);
+
+        while(scan.hasNextInt()){
+
+            result[i++] = scan.nextInt();
+       }
+
+        scan.close();
+        return result;
+
+
     }
-    
+
     /**
      * Outputs first 10 integers of heap array, after heap creation, into output file.
      * @param heap The MaxHeap object, used to access the heap array values.
@@ -45,13 +51,13 @@ public class DriverMH {
 
     /**
      * Output the first 10 integers of heap array, after 10 removals, into output file.
-     * @param heap 
+     * @param heap
      */
     public static void print10Num_Removal(MaxHeap<Integer> heap, String fileName) {
 
     }
 
-    
+
 
 
 
@@ -90,7 +96,7 @@ public class DriverMH {
         //smartHeap.printHeap();
 
 
-        
+
     }
 
 }
