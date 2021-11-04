@@ -58,7 +58,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
     * @param entries
     */
    public void createHeap_SmartWay(T[] entries) {
-      //int entriesLength = entries.length;
+      optimal = true;
       int tempSwaps = 0;
 
       checkCapacity(entries.length);  // Call other constructor
@@ -77,11 +77,20 @@ public final class MaxHeap<T extends Comparable<? super T>>
       swaps = tempSwaps;    
    } // end constructor
 
+   public boolean getMethod() {
+      return optimal;
+   }
 
    public int getSwaps() {
       return swaps;
    }
 
+   
+   public T getData(int index) {
+
+      return heap[index];
+   }
+   
    public T getHeapValue_atIndex(int index) {
       if (index > 0 && index < lastIndex) {
          return heap[index];
