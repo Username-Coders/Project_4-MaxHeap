@@ -162,19 +162,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
       lastIndex = 0;
    } // end clear
 
-
-   /**
-    * Prints the heap.
-    */
-   public void printHeap() {
-
-      for (int i = 1; i < this.getSize() + 1;i++) {
-          System.out.print(heap[i] + " ");
-      }
-
-      System.out.println();
-
-   }
    
    /**
     * ---- Private Methods ----
@@ -248,40 +235,5 @@ public final class MaxHeap<T extends Comparable<? super T>>
       return tempSwaps;
    } // end reheap (powerpoint version)
 
-   // reheap version from source code
-   /*
-   private static <T extends Comparable<? super T>>
-        void reheap(T[] heap, int rootIndex, int lastIndex) {
-   boolean done = false;
-   T orphan = heap[rootIndex];
-   int leftChildIndex = 2 * rootIndex + 1;
-
-   while (!done && (leftChildIndex <= lastIndex))
-   {
-      int largerChildIndex = leftChildIndex;
-      int rightChildIndex = leftChildIndex + 1;
-
-      if ( (rightChildIndex <= lastIndex) &&
-            heap[rightChildIndex].compareTo(heap[largerChildIndex]) > 0)
-      {
-         largerChildIndex = rightChildIndex;
-      } // end if
-
-      if (orphan.compareTo(heap[largerChildIndex]) < 0)
-      {
-         heap[rootIndex] = heap[largerChildIndex];
-         rootIndex = largerChildIndex;
-         leftChildIndex = 2 * rootIndex + 1;
-      }
-      else
-         done = true;
-   } // end while
-
-   heap[rootIndex] = orphan;
-   } // end reheap
-   */
-
-
-
-
+   
 } // end MaxHeap
