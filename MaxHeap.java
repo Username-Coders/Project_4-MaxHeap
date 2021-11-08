@@ -84,12 +84,6 @@ public final class MaxHeap<T extends Comparable<? super T>>
    public int getSwaps() {
       return swaps;
    }
-
-   
-   public T getData(int index) {
-
-      return heap[index];
-   }
    
    public T getHeapValue_atIndex(int index) {
       if (index > 0 && index < lastIndex) {
