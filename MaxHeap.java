@@ -44,8 +44,11 @@ public final class MaxHeap<T extends Comparable<? super T>>
     * @param entries The array containing the content of max heap.
     */
    public void createHeap_Sequential(T[] entries) {
-
-      checkCapacity(entries.length);
+   	optimal = false;
+	checkCapacity(entries.length);
+	
+	int tempSwaps = 0;
+	
 
       
 
