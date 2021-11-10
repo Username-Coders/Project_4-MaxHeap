@@ -9,7 +9,7 @@ public interface MaxHeapInterface<T extends Comparable<? super T>>
 {
    /** Adds a new entry to this heap.
        @param newEntry  An object to be added. */
-   public void add(T newEntry);
+   public int add(T newEntry);
 
    /** Removes and returns the largest item in this heap.
        @return  Either the largest object in the heap or,
@@ -31,4 +31,6 @@ public interface MaxHeapInterface<T extends Comparable<? super T>>
 
    /** Removes all entries from this heap. */
    public void clear();
+
+   public void createHeap_SmartWay(T[] entries);
 } // end MaxHeapInterface
