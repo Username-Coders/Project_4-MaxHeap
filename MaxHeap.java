@@ -86,7 +86,7 @@ public final class MaxHeap<T extends Comparable<? super T>>
    }
    
    public T getHeapValue_atIndex(int index) {
-      if (index > 0 && index < lastIndex) {
+      if (index > 0 && index <= lastIndex) {
          return heap[index];
       } else {
          return null;
@@ -94,9 +94,9 @@ public final class MaxHeap<T extends Comparable<? super T>>
    }
 
 
-   public void add(T newEntry)
+   public int add(T newEntry)
    {
-   
+      int tempSwaps = 0;
       checkIntegrity();        // Ensure initialization of data fields
       int newIndex = lastIndex + 1;
       int parentIndex = newIndex / 2;
@@ -105,11 +105,14 @@ public final class MaxHeap<T extends Comparable<? super T>>
          heap[newIndex] = heap[parentIndex];
          newIndex = parentIndex;
          parentIndex = newIndex / 2;
+         tempSwaps++;
       } // end while
 
       heap[newIndex] = newEntry;
       lastIndex++;
       ensureCapacity();
+
+      return tempSwaps;
 
    } // end add
 
