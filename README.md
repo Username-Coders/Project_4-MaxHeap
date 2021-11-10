@@ -6,7 +6,7 @@ CS 2400 Project 4-MaxHeap
 ## ii) Member Contributions:
     
 ````
-Implement method that builds a max heap using sequential insertions (Real Name, Username)
+Implement method that builds a max heap using sequential insertions (Daniel Rodriguez, drodriguez97)
   => its time complexity: O(nlogn)
   => by successively applying the regular add method
   => needs to keep track of how many swaps (swapping parent and child) are required to build a heap
@@ -26,7 +26,7 @@ Implement the remove method of a max-heap (Real Name, Username)
 ````
 
 ````
-Method that reads a sequence of integers from an iput file (Real Name, Username)
+Method that reads a sequence of integers from an iput file (Priscilla Ballesteros, PBallesteros02)
   => "data.txt"
     => This file contains 100 integers (no duplicates, and positive numbers)
     => Each line is an integer
@@ -36,19 +36,19 @@ Method that reads a sequence of integers from an iput file (Real Name, Username)
 ### Performing heap operations:
 
 ````
-Method that prints the first 10 integers of an array into an output file (Real Name, Username)
+Method that prints the first 10 integers of an array into an output file (John Salinas, JohnSalinas123)
     => This method is called once the Max Heap is created
     => "Heap built using sequential insertions: 100,94,99,77,93,98,61,68,76,84,..."
 ````
 
 ````
-Method that prints number of swaps during Max Heap creation into output file (Real Name, Username)
+Method that prints number of swaps during Max Heap creation into output file (John Salinas, JohnSalinas123)
     => Number of swaps could be a private class variable that gets updated when Max Heap is created
     => "Number of swaps in the heap creation: 480"
 ````
 
 ````
-Method that prints the first 10 integers of an array into outputfile 
+Method that prints the first 10 integers of an array into outputfile (John Salinas, JohnSalinas123)
     => This method is called after 10 removals
     => "Heap after 10 removals: 90,89,63,79,88,55,62,71,78,87,..."
 ````
