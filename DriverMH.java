@@ -54,8 +54,8 @@ public class DriverMH {
             if (optimalMethod) {
         
                 outputFile.print("Heap built using optimal method: ");
-                for(int i = 1; i < heap.getSize(); i++) {
-                    outputFile.print(heap.getData(i) + " ");
+                for(int i = 1; i < heap.getSize() + 1; i++) {
+                    outputFile.print(heap.getHeapValue_atIndex(i) + ",");
                     if (i == 30) {
                         outputFile.println();
                     } else if (i == 70) {
@@ -67,6 +67,16 @@ public class DriverMH {
             // Heap was created using sequential insertion
             } else {
 
+                outputFile.print("Heap built using sequential insertions: ");
+                for (int i = 1; i < heap.getSize() + 1; i++) {
+                    outputFile.print(heap.getHeapValue_atIndex(i) + ",");
+                    if (i == 30) {
+                        outputFile.println();
+                    } else if (i == 70) {
+                        outputFile.println();
+                    }
+                }
+                outputFile.println();
 
             }
             outputFile.close();
@@ -101,14 +111,37 @@ public class DriverMH {
      * @param heap The MaxHeap object from which to perform 10 removals.
      */
     public static void perform10Removals(MaxHeap<Integer> heap) {
-
+        for (int i = 0; i < 10;i++) {
+            heap.removeMax();
+        }
     }
 
     /**
      * Output the 100 integers of heap array, after 10 removals, into output file.
      * @param heap
+     * @throws IOException
      */
-    public static void print100Num_Removal(MaxHeap<Integer> heap, String fileName) {
+    public static void print100Num_Removal(MaxHeap<Integer> heap, String fileName) throws IOException {
+        File myFile = new File(fileName);
+        
+        if (heap != null && myFile.exists()) {
+            
+            FileWriter appendFile = new FileWriter(fileName, true);
+            PrintWriter outputFile = new PrintWriter(appendFile);
+        
+                outputFile.print("Heap after 10 removals: ");
+                for(int i = 1; i < heap.getSize() + 1; i++) {
+                    outputFile.print(heap.getHeapValue_atIndex(i) + ",");
+                    if (i == 30) {
+                        outputFile.println();
+                    } else if (i == 70) {
+                        outputFile.println();
+                    }
+                }
+                outputFile.println();
+           
+            outputFile.close();
+        }
 
     }
 
@@ -124,8 +157,6 @@ public class DriverMH {
 
     }
 
-
-
     public static void printOutputToFile(MaxHeap<Integer> heap, String fileName) throws IOException {
         File myFile = new File(fileName);
 
@@ -139,10 +170,10 @@ public class DriverMH {
 
             print100Num_Removal(heap, fileName);
 
+
         }
 
     }
-
 
     // creates a file with the given name
     public static void MakeAFile(String fileName) throws FileNotFoundException {
@@ -153,29 +184,76 @@ public class DriverMH {
 
     public static void main(String []args) throws IOException {
 
-        String inputFileName = "data_sorted.txt";
+        
+
+        String inputFileName1 = "data_sorted.txt";
+        String inputFileName2 = "data_random.txt";
         String outputFileName = "data.txt";
 
         // create output file "data.txt"
         MakeAFile(outputFileName);
 
-        // Read 100 integers from "data_sorted.txt"
-        Integer[] heapValues = read100Integers(inputFileName);
+        // Read 100 integers from input files
+        Integer[] heapSorted = read100Integers(inputFileName1);
+        Integer[] heapRandom = read100Integers(inputFileName2);
 
-        // Creating heap the sequential way
-        MaxHeap<Integer> sequenHeap = new MaxHeap<>();
-        sequenHeap.createHeap_Sequential(heapValues);
+        // Creating heap the sequential way using "data_sorted.txt" values
+        MaxHeap<Integer> sequenHeap1 = new MaxHeap<>();
+        sequenHeap1.createHeap_Sequential(heapSorted);
 
-        // Creating heap the smart way
+        // Creating heap the smart way using "data_sorted.txt" values
+        MaxHeap<Integer> smartHeap1 = new MaxHeap<>();
+        smartHeap1.createHeap_SmartWay(heapSorted);
+
+        printOutputBorder(outputFileName);
+        printOutputToFile(sequenHeap1, outputFileName);
+
+        File myFile1 = new File(outputFileName);
+        if (myFile1.exists()) {
+            FileWriter appendFile = new FileWriter(outputFileName, true);
+            PrintWriter outputFile = new PrintWriter(appendFile);
+            outputFile.println();
+            outputFile.close();
+        }
+
+        printOutputToFile(smartHeap1, outputFileName);
+        printOutputBorder(outputFileName);
+
+        // Creating heap the sequential way using "data_random.txt" values
+        MaxHeap<Integer> sequenHeap2 = new MaxHeap<>();
+        sequenHeap2.createHeap_Sequential(heapRandom);
+
+        // Creating heap the smart way using "data_sorted.txt" values
+        MaxHeap<Integer> smartHeap2 = new MaxHeap<>();
+        smartHeap2.createHeap_SmartWay(heapRandom);
+
+        printOutputBorder(outputFileName);
+        printOutputToFile(sequenHeap2, outputFileName);
+
+        File myFile2 = new File(outputFileName);
+        if (myFile2.exists()) {
+            FileWriter appendFile = new FileWriter(outputFileName, true);
+            PrintWriter outputFile = new PrintWriter(appendFile);
+            outputFile.println();
+            outputFile.close();
+        }
+
+        printOutputToFile(smartHeap2, outputFileName);
+        printOutputBorder(outputFileName);
+
+
+        Integer[] testValues = {20,40,30,10,90,70};
+
+        MaxHeap<Integer> testHeap = new MaxHeap<>();
+        testHeap.createHeap_SmartWay(testValues);
+
+        
+
+        Integer[] heapValues = {20,40,30,10,90,70};
+
         MaxHeap<Integer> smartHeap = new MaxHeap<>();
         smartHeap.createHeap_SmartWay(heapValues);
 
-        printOutputBorder(outputFileName);
-
-        printOutputToFile(sequenHeap, outputFileName);
-
-        printOutputToFile(smartHeap, outputFileName);
-
-        printOutputBorder(outputFileName);
+    }
 
 }
