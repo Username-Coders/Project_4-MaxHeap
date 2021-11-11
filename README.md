@@ -60,7 +60,7 @@ Method that prints the first 10 integers of an array into outputfile (John Salin
 
 Screencast recording, talk about your code briefly, less than 3 minutes (All members)
 
-Unit testing on added methods using unit test framework (Name goes here)
+Unit testing on added methods using unit test framework (John Salinas, JohnSalinas123)
 
 ## iii) Link to screencast:
 [Click here for screencast](Placeholder)
