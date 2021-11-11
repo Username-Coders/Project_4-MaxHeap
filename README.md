@@ -63,7 +63,7 @@ Screencast recording, talk about your code briefly, less than 3 minutes (All mem
 Unit testing on added methods using unit test framework (John Salinas, JohnSalinas123)
 
 ## iii) Link to screencast:
-[Click here for screencast](Placeholder)
+No  screencast
 
 ## vi) Extra Features
 
