@@ -65,6 +65,6 @@ Unit testing on added methods using unit test framework (John Salinas, JohnSalin
 ## iii) Link to screencast:
 No  screencast
 
-## vi) Extra Features
+## iv) Extra Features
 
 Made use of Java Interface and Generic Data types
